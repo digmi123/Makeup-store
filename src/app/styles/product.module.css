@@ -1,0 +1,40 @@
+.container {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 0px grey;
+  max-width: 350px;
+}
+
+.container > img {
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.colorsWrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.color {
+  background-color: var(--c);
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 1px grey;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-block: 1rem;
+}

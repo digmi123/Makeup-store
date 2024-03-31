@@ -1,0 +1,33 @@
+.container {
+  position: sticky;
+  top: 0;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding-inline: 1rem;
+  z-index: 1;
+  backdrop-filter: blur(50px);
+}
+
+.navBtn {
+  cursor: pointer;
+  color: #000;
+  padding-inline: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid lightgrey;
+}
+.navBtn > a {
+  text-decoration: none;
+  color: #000;
+}
+
+.container > img {
+  padding-block: 10px;
+  padding-inline: 10px;
+  height: 100%;
+}
