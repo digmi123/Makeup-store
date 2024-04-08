@@ -14,12 +14,20 @@ const options = {
         const user = await prisma.user.findFirst({
           where: { email: email, password: password },
         });
-        console.log({ user });
         return user;
       },
     }),
   ],
+  pages: {
+    signIn: "/api/auth/login",
+  },
+
   callbacks: {
+    async jwt({ token, user }) {
+      token.role = user?.role;
+      return token;
+    },
+
     async session({ session, token }) {
       const user = await prisma.user.findFirst({
         where: { id: Number(token.sub) }, // You might want to hash the password before comparing it,
