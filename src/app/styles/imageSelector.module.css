@@ -1,0 +1,35 @@
+.container {
+    max-width: 100%;
+    width: 500px;
+}
+
+.carousel {
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera /
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/ Hide scrollbar for IE, Edge and Firefox /
+.carousel {
+  -ms-overflow-style: none; / IE and Edge /
+  scrollbar-width: none; / Firefox */
+/* } */
+
+.viewImage {
+    width: 100%;
+}
+
+.imageCard {
+    width: 5rem;
+    height: 5rem;
+}
+
+.imageCard[selected="true"] {
+    border: 2px solid #000;
+}

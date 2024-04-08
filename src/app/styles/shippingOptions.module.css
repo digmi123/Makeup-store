@@ -1,0 +1,41 @@
+
+.shippingContainer>p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-block: 0.8rem;
+}
+
+.shippingContainer>h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.card {
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.card[active="true"] {
+    border: 2px solid black;
+}
+
+.description {
+    font-size: 1.2rem;
+}
+
+.information {
+    font-size: 1.2rem;
+}
