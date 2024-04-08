@@ -13,7 +13,7 @@ export default async function view() {
     <div>
       {users.map((user) => {
         return (
-          <Link href={`/users/${encodeURIComponent(user.id)}`}>
+          <Link href={`/users/${encodeURIComponent(user.id)}`} key={user.id}>
             <h1>{user.email}</h1>
           </Link>
         );
