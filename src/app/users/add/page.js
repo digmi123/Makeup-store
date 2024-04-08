@@ -9,7 +9,6 @@ async function serverAction(formData) {
     password: formData.get("password"),
     description: formData.get("description"),
   };
-  console.log(newUser);
   const result = await prisma.user.create({ data: newUser });
   revalidatePath("/users");
 }
