@@ -1,7 +1,7 @@
 import { items } from "@/data.json";
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/__components/ProductCard";
 import styles from "@/app/styles/home.module.css";
-import FilterBar from "@/components/FilterBar.jsx";
+import FilterBar from "@/__components/FilterBar.jsx";
 import Link from "next/link";
 
 export default function Home({ searchParams }) {
@@ -12,7 +12,7 @@ export default function Home({ searchParams }) {
   );
 
   return (
-    <main className={styles.container}>
+    <div className={styles.container}>
       <FilterBar />
       <div className={styles.productsContainer}>
         {filteredItems.map((item) => (
@@ -25,6 +25,6 @@ export default function Home({ searchParams }) {
           </Link>
         ))}
       </div>
-    </main>
+    </div>
   );
 }

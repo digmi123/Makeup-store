@@ -1,6 +1,6 @@
-import ImageSelector from "@/components/ImageSelector";
-import RelatedItems from "@/components/RelatedItems";
-import ShippingOptions from "@/components/ShippingOptions";
+import ImageSelector from "@/__components/ImageSelector";
+import RelatedItems from "@/__components/RelatedItems";
+import ShippingOptions from "@/__components/ShippingOptions";
 import { items } from "@/data.json";
 import styles from "@/app/styles/productPage.module.css";
 
@@ -15,7 +15,7 @@ export default async function Product({ params }) {
   const item = await getProduct(itemId);
 
   return (
-    <main>
+    <div style={{ width: "100%" }}>
       <div className={styles.productContainer} key="itemId">
         <ImageSelector itemImage={item?.api_featured_image} />
 
@@ -43,9 +43,13 @@ export default async function Product({ params }) {
           <div className={styles.colorIndicator}>
             <div className={styles.selectedColor}>Color: selectedColor</div>
             <div className={styles.colorsWrapper}>
-              {/* {item.product_colors?.slice(0, 5).map(([key, value]) => {
-                return <div>{value}</div>;
-              })} */}
+              {item.product_colors.slice(0, 5).map(({ hex_value }) => (
+                <div
+                  key={item.name}
+                  className={styles.color}
+                  style={{ backgroundColor: hex_value }}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -70,6 +74,6 @@ export default async function Product({ params }) {
         </div>
       </div>
       <RelatedItems />
-    </main>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
-import Navbar from "@/components/Navbar.jsx";
+import Navbar from "@/__components/Navbar.jsx";
+import styles from "@/app/styles/rootLayout.module.css";
 
 export const metadata = {
   title: "Create Next App",
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <div>
+    <div className={styles.rootLayout}>
       <Navbar />
       {children}
     </div>

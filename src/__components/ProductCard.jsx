@@ -1,14 +1,20 @@
 import styles from "@/app/styles/product.module.css";
+import Image from "next/image";
 
 export default async function ProductCard({ item }) {
   console.log({ item });
   return (
     <div className={styles.container}>
-      <img src={item.api_featured_image} alt="Image" />
+      <Image
+        src={`https://${item.api_featured_image}`}
+        alt="Image"
+        width={200}
+        height={200}
+      />
       <h3>{item.name}</h3>
 
       <div className={styles.colorsWrapper}>
-        {item.product_colors.slice(0, 5).map(({ hex_value, colour_name }) => (
+        {item.product_colors.slice(0, 5).map(({ hex_value }) => (
           <div
             key={item.name}
             className={styles.color}

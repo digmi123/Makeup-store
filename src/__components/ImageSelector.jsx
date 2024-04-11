@@ -42,20 +42,28 @@ const imagesList = [
 ];
 
 import style from "@/app/styles/imageSelector.module.css";
+import Image from "next/image";
 
 export default function ImageSelector({ itemImage }) {
   return (
     <div className={style.container}>
-      <img className={style.viewImage} src={itemImage} alt="ProductImage" />
+      <Image
+        className={style.viewImage}
+        src={`https://${itemImage}`}
+        alt="ProductImage"
+        width={400}
+        height={400}
+      />
       <div className={style.carousel}>
         {imagesList.map((image) => {
           return (
-            <img
+            <Image
+              key={image.key}
               className={style.imageCard}
-              selected="selectedImage.key === image.key"
-              key="index"
-              src={image.src}
+              src={`https://${image.src}`}
               alt="ProductImage"
+              width={200}
+              height={200}
             />
           );
         })}
