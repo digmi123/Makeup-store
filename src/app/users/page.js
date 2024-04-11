@@ -1,5 +1,5 @@
 import { items } from "@/data.json";
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/__components/ProductCard";
 import styles from "@/app/styles/home.module.css";
 
 export default async function Home() {
