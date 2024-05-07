@@ -17,7 +17,7 @@ export default async function Product({ params }) {
 
   return (
     <div style={{ width: "100%" }}>
-      <div className={styles.productContainer} key="itemId">
+      <div className={styles.productContainer}>
         <ImageSelector itemImage={item?.api_featured_image} />
 
         <div className={styles.productBar}>
@@ -46,7 +46,7 @@ export default async function Product({ params }) {
             <div className={styles.colorsWrapper}>
               {item.product_colors.slice(0, 5).map(({ hex_value }) => (
                 <div
-                  key={item.name}
+                  key={`${item.name}-${hex_value}`}
                   className={styles.color}
                   style={{ backgroundColor: hex_value }}
                 />
