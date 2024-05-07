@@ -1,7 +1,7 @@
 import { items } from "@/data.json";
-import ProductCard from "@/__components/ProductCard";
+import ProductCard from "@/components/ProductCard";
 import styles from "@/app/styles/home.module.css";
-import FilterBar from "@/__components/FilterBar.jsx";
+import FilterBar from "@/components/FilterBar.jsx";
 import Link from "next/link";
 
 export default function Home({ searchParams }) {
