@@ -1,8 +1,9 @@
-import ImageSelector from "@/__components/ImageSelector";
-import RelatedItems from "@/__components/RelatedItems";
-import ShippingOptions from "@/__components/ShippingOptions";
+import ImageSelector from "@/components/ImageSelector";
+import RelatedItems from "@/components/RelatedItems";
+import ShippingOptions from "@/components/ShippingOptions";
 import { items } from "@/data.json";
 import styles from "@/app/styles/productPage.module.css";
+import QuantitySection from "@/components/QuantitySection";
 
 const sizeList = ["XL", "L", "M", "S"];
 
@@ -56,21 +57,7 @@ export default async function Product({ params }) {
 
         <div className={styles.orderBar}>
           <ShippingOptions />
-          <div className={styles.actionSection}>
-            <div className={styles.quantitySection}>
-              <h3>Quantity</h3>
-              <div className={styles.quantityActions}>
-                <button className={styles.updateButton}>+</button>
-                <p>quantity</p>
-                <button className={styles.updateButton}>-</button>
-              </div>
-              <p>Available pieces: 15</p>
-            </div>
-
-            <div className={styles.buttonsSection}>
-              <button className={styles.btnPrimary}>Add to bag</button>
-            </div>
-          </div>
+          <QuantitySection product={item} />
         </div>
       </div>
       <RelatedItems />
