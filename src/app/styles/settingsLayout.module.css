@@ -1,4 +1,5 @@
 .settingsLayout {
     display: grid;
     grid-template-rows: min-content auto;
+    justify-items: center;
 }

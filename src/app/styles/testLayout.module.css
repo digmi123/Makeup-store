@@ -1,0 +1,12 @@
+.testLayout {
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: min-content auto;
+    grid-template-columns: 100%;
+}
