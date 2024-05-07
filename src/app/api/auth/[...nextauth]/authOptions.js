@@ -33,6 +33,10 @@ const options = {
         where: { id: Number(token.sub) }, // You might want to hash the password before comparing it,
       });
       session.user.role = user.role;
+      session.themeColor = {
+        "--background-color": "#ffffff",
+        "--text-color": "#000000",
+      };
       return session;
     },
   },
