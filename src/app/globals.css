@@ -1,9 +1,15 @@
+html{
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 #app {
   min-height: 100vh;
   min-height: 100dvh;
 }
 
 body {
+
   min-height: 100vh;
   min-height: 100dvh;
 
