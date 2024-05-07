@@ -21,7 +21,7 @@ export default function Edit() {
       "--text-color": event.target["--text-color"].value,
     };
     if (!layoutRef.current) return;
-    theme.colorElement(colors, layoutRef.current);
+    theme.colorElement(colors, document.documentElement);
   };
 
   return (
@@ -53,7 +53,7 @@ export default function Edit() {
           text-color
           <input
             type="color"
-            name="--text-color"
+            name="text-color"
             defaultValue={theme.currentColors["--text-color"]}
           />
         </label>
@@ -62,7 +62,7 @@ export default function Edit() {
           text-color
           <input
             type="color"
-            name="--text-color"
+            name="text-color"
             defaultValue={theme.currentColors["--text-color"]}
           />
         </label>
@@ -71,7 +71,7 @@ export default function Edit() {
           text-color
           <input
             type="color"
-            name="--text-color"
+            name="text-color"
             defaultValue={theme.currentColors["--text-color"]}
           />
         </label>
@@ -80,7 +80,7 @@ export default function Edit() {
           text-color
           <input
             type="color"
-            name="--text-color"
+            name="text-color"
             defaultValue={theme.currentColors["--text-color"]}
           />
         </label>
