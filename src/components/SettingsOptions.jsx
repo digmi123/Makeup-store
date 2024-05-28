@@ -1,5 +1,6 @@
 import styles from "@/app/styles/settingsOptions.module.css";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 const options = [
   { key: "custom", text: "Custom website" },
@@ -15,13 +16,9 @@ export default function SettingsOptions() {
     <div className={styles.container}>
       {options.map((option, index) => {
         return (
-          <Link
-            key={index}
-            className={styles.linkOption}
-            href={`/settings/${option.key}`}
-          >
-            {option.text}
-          </Link>
+          <Button asChild key={`${option}-${index}`}>
+            <Link href={`/settings/${option.key}`}>{option.text}</Link>
+          </Button>
         );
       })}
     </div>

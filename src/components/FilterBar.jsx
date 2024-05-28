@@ -1,7 +1,11 @@
 "use client";
-import styles from "@/app/styles/filterBar.module.css";
-import FilterExpand from "./FilterExpand";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const filters = {
   category: {
@@ -53,25 +57,38 @@ export default function FilterBar() {
   };
 
   return (
-    <aside className={styles.container}>
-      {Object.entries(filters).map(([label, filterOptions]) => {
-        return (
-          <FilterExpand label={filterOptions.name} key={label}>
-            {filterOptions.options.map((filterOption) => {
-              return (
-                <label className={styles.filterOption} key={filterOption}>
-                  <input
-                    type="checkbox"
-                    onChange={handleFilter(label, filterOption)}
-                    checked={checkDefault(label, filterOption)}
-                  />
-                  {filterOption}
-                </label>
-              );
-            })}
-          </FilterExpand>
-        );
-      })}
+    <aside className="max-h-screen px-6 overflow-auto">
+      <Accordion
+        type="multiple"
+        className="text-[--filter-foreground] bg-[--filter-background]"
+      >
+        {Object.entries(filters).map(([label, filterOptions]) => {
+          return (
+            <AccordionItem value={label} key={label}>
+              <AccordionTrigger className="text-lg">
+                {filterOptions.name}
+              </AccordionTrigger>
+              <AccordionContent>
+                {filterOptions.options.map((filterOption) => {
+                  return (
+                    <label
+                      className="flex items-center gap-4 py-2 text-lg"
+                      key={filterOption}
+                    >
+                      <input
+                        type="checkbox"
+                        onChange={handleFilter(label, filterOption)}
+                        checked={checkDefault(label, filterOption)}
+                      />
+                      {filterOption}
+                    </label>
+                  );
+                })}
+              </AccordionContent>
+            </AccordionItem>
+          );
+        })}
+      </Accordion>
     </aside>
   );
 }
