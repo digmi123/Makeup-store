@@ -32,6 +32,7 @@ const options = {
       const user = await prisma.user.findFirst({
         where: { id: Number(token.sub) }, // You might want to hash the password before comparing it,
       });
+      session.user.id = Number(token.sub);
       session.user.role = user.role;
       session.themeColor = {
         "--background-color": "#ffffff",
