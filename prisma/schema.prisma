@@ -10,20 +10,82 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://digmi:201299Aa@localhost:5432/test?schema=public"
+  url      = "postgresql://postgres:88788456a@localhost:5432/postgres?schema=public"
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  name  String?
-  email String  @unique
-  role  Role    @default(user)
-  password String
+  id          Int         @id @default(autoincrement())
+  name        String?
+  email       String      @unique
+  role        Role        @default(user)
+  password    String
   description String?
+  orders      Order[]
+  OrderItems  OrderItem[]
+}
+
+model Product {
+  id            Int             @id @default(autoincrement())
+  brand         String?
+  name          String?
+  price         Decimal?
+  description   String?
+  category      String?
+  image         String?
+  productColors ProductColors[]
+  orderItems    OrderItem[]
+}
+
+model Color {
+  id            Int             @id @default(autoincrement())
+  hexa          String?
+  colorName     String?
+  orderItems    OrderItem[]
+  ProductColors ProductColors[]
+}
+
+model ProductColors {
+  productId Int
+  colorId   Int
+
+  product Product @relation(fields: [productId], references: [id])
+  color   Color   @relation(fields: [colorId], references: [id])
+
+  @@id([productId, colorId])
+}
+
+model OrderItem {
+  orderItemId Int     @id @default(autoincrement())
+  userId      Int
+  productId   Int
+  quantity    Int
+  colorId     Int
+  orders      Order[]
+
+  user    User    @relation(fields: [userId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+  color   Color   @relation(fields: [colorId], references: [id])
+
+  @@unique([userId, productId])
+}
+
+model Order {
+  id            Int            @id @default(autoincrement())
+  userId        Int
+  shopId        Int
+  paymentMethod PaymentMethods @default(Visa)
+  orderItems    OrderItem[]
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 enum Role {
   user
   pro
   admin
+}
+
+enum PaymentMethods {
+  Visa
+  PayPal
 }
