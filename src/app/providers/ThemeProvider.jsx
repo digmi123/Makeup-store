@@ -5,7 +5,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 const contextTheme = createContext();
 
 export default function ThemeProvider({ themeColors = {}, children }) {
-  // const { data: session, status } = useSession();
   const [currentColors, setCurrentColor] = useState(themeColors);
 
   const colorElement = (data, element = document.documentElement) => {
