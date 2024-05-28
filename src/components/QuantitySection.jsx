@@ -1,11 +1,21 @@
 "use client";
 import { useCart } from "@/app/providers/CartProvider";
-import styles from "@/app/styles/productPage.module.css";
 import { useState } from "react";
+import axios from "axios";
 
-export default function QuantitySection({ product }) {
-  const [quantity, setQuantity] = useState(0);
+export default function QuantitySection({ product, color }) {
+  const [quantity, setQuantity] = useState(1);
   const cart = useCart();
+
+  const addToCart = async () => {
+    if (!color) {
+      const colorWrapper = document.getElementById("color-wrapper");
+      colorWrapper.classList.add("error");
+      return;
+    }
+    axios.post("/api/product/cart", { product, quantity, color });
+    cart.addToCart(product);
+  };
 
   const handleAdd = () => {
     setQuantity((prev) => ++prev);
@@ -17,25 +27,31 @@ export default function QuantitySection({ product }) {
   };
 
   return (
-    <div className={styles.actionSection}>
-      <div className={styles.quantitySection}>
+    <div>
+      <div className="py-[20px] flex flex-col gap-4">
         <h3>Quantity</h3>
-        <div className={styles.quantityActions}>
-          <button className={styles.updateButton} onClick={handleAdd}>
+        <div className="flex items-center gap-4">
+          <button
+            className="w-8 h-8 rounded border-none shadow-lg"
+            onClick={handleAdd}
+          >
             +
           </button>
           <p>{quantity}</p>
-          <button className={styles.updateButton} onClick={handleRemove}>
+          <button
+            className="w-8 h-8 rounded border-none shadow-lg"
+            onClick={handleRemove}
+          >
             -
           </button>
         </div>
         <p>Available pieces: 15</p>
       </div>
 
-      <div className={styles.buttonsSection}>
+      <div className="flex flex-col pt-6 pb-2 gap-4">
         <button
-          className={styles.btnPrimary}
-          onClick={() => cart.addToCart(product)}
+          className="border-none min-w-40 py-3 border-2 border-black px-4 text-xl uppercase text-black shadow-md"
+          onClick={addToCart}
         >
           Add to bag
         </button>
