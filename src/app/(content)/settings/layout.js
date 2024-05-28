@@ -1,9 +1,8 @@
 import SettingsOptions from "@/components/SettingsOptions";
-import styles from "@/app/styles/settingsLayout.module.css";
 
 export default function SettingsLayout({ children }) {
   return (
-    <div className={styles.settingsLayout}>
+    <div className="grid grid-rows-[min-content_auto] justify-items-center">
       <SettingsOptions />
       {children}
     </div>
