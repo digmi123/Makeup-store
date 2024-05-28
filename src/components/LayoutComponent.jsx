@@ -5,9 +5,9 @@ import FilterBar from "./FilterBar";
 import Navbar from "./Navbar";
 import ProductCard from "./ProductCard";
 
-export default function LayoutComponent({ passedRef }) {
+export default function LayoutComponent() {
   return (
-    <div className={testLayoutStyles.testLayout} ref={passedRef}>
+    <div className={testLayoutStyles.testLayout} id="edit-layout">
       <Navbar />
       <div className={homeStyles.container}>
         <FilterBar />
