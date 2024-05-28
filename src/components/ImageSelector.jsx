@@ -44,15 +44,15 @@ const imagesList = [
 import style from "@/app/styles/imageSelector.module.css";
 import Image from "next/image";
 
-export default function ImageSelector({ itemImage }) {
+export default function ImageSelector({ image }) {
   return (
-    <div className={style.container}>
+    <div className="w-[500px] max-w-full">
       <Image
-        className={style.viewImage}
-        src={`https://${itemImage}`}
+        className="w-full h-[400px]"
+        src={`https://${image}`}
         alt="ProductImage"
-        width={400}
-        height={400}
+        width={200}
+        height={200}
       />
       <div className={style.carousel}>
         {imagesList.map((image) => {

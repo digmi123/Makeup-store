@@ -1,5 +1,3 @@
-import styles from "@/app/styles/shippingOptions.module.css";
-
 const shippingOptions = [
   {
     title: "Pickup",
@@ -23,22 +21,22 @@ const shippingOptions = [
 
 export default function ShippingOptions() {
   return (
-    <div className={styles.shippingContainer}>
-      <h2>Delivery options</h2>
+    <div>
+      <h2 className="text-2xl font-bold pb-4">Delivery options</h2>
 
-      <div className={styles.cardsContainer}>
+      <div className="grid grid-cols-[repeat(auto-fill, minmax(10rem, 1fr))] items-start gap-4">
         {shippingOptions.map((option) => {
           return (
-            <div className={styles.card} key={option.title}>
-              <div className={styles.top}>
-                <h3>{option.title}</h3>
-              </div>
-              <p className={styles.description}>{option.description}</p>
+            <div
+              className="border-2 border-gray-600 rounded-xl px-4 py-2 flex flex-col items-start justify-between cursor-pointer"
+              key={option.title}
+            >
+              <h3>{option.title}</h3>
+              <p className="text-lg">{option.description}</p>
             </div>
           );
         })}
       </div>
-      {/* <p class="information">{selectedOption.information}</p> */}
     </div>
   );
 }

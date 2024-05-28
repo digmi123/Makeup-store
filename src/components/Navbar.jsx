@@ -1,37 +1,28 @@
 import Link from "next/link";
-import styles from "@/app/styles/navbar.module.css";
-import SettingsIcon from "./SettingsIcon";
 import CartIcon from "./CartIcon";
+import SettingsMenu from "./SettingsMenu";
 
 export default function Navbar() {
   return (
-    <div className={styles.container}>
-      <div className={styles.navBtn}>
-        <Link href="/products">Products</Link>
+    <div className="sticky top-0 flex z-[3] items-center justify-between px-4 py-6 rounded-b-md backdrop-blur-md bg-[--navbar-background] text-[--navbar-foreground]">
+      <div className="cursor-pointer text-inherit px-4 text-lg font-bold uppercase">
+        {/* TODO: border: 1px solid color-mix(in srgb, var(--background-color), var(--text-color)); on upper div */}
+        <Link href="/products" className="text-inherit">
+          Products
+        </Link>
       </div>
-      <div className={styles.rightSide}>
-        <div className={styles.settingsWrapper}>
-          <label className={styles.dropDown}>
-            <input type="checkbox" hidden />
-            <SettingsIcon />
-          </label>
-
-          <div className={styles.dropDownList}>
-            <Link href={"/settings/custom"}>Settings</Link>
-            <Link href={"/settings/custom"}>Settings</Link>
-            <Link href={"/settings/custom"}>Settings</Link>
-          </div>
-        </div>
+      <div className="hidden sm:flex items-center gap-4">
+        <SettingsMenu />
 
         <Link href="/checkout">
           <CartIcon />
         </Link>
 
-        <div className={styles.navBtn}>
+        <div className="cursor-pointer text-inherit px-4 text-lg font-bold uppercase">
           <Link href="/api/auth/login?callbackUrl=/products">Login</Link>
         </div>
 
-        <div className={styles.navBtn}>
+        <div className="cursor-pointer text-inherit px-4 text-lg font-bold uppercase">
           <Link href="/api/auth/signout?callbackUrl=/api/auth/login">
             SignOut
           </Link>
