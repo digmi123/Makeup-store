@@ -7,7 +7,7 @@ function CheckoutItem({ item }) {
   const { deleteFromCart } = useCart();
   const { product, quantity } = item;
   return (
-    <main className="grid grid-cols-5 border-b-2 border-gray-300">
+    <div className="grid grid-cols-5 border-b-2 border-gray-300 gap-x-4">
       <div>
         <Image
           src={`https://${product.image}`}
@@ -16,14 +16,16 @@ function CheckoutItem({ item }) {
           height={150}
           className="aspect-[1/1] object-cover"
         />
-        <div className="flex gap-1 py-2">
-          {product.productColors.map(({ color }) => (
-            <div
-              key={color.hexa}
-              className="w-5 h-5 rounded-full"
-              style={{ backgroundColor: color.hexa }}
-            />
-          ))}
+        <div className="w-full overflow-auto">
+          <div className="flex gap-1 py-2 w-fit">
+            {product.productColors.map(({ color }) => (
+              <div
+                key={color.hexa}
+                className="w-5 h-5 rounded-full"
+                style={{ backgroundColor: color.hexa }}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -54,7 +56,7 @@ function CheckoutItem({ item }) {
           Remove
         </Button>
       </div>
-    </main>
+    </div>
   );
 }
 
