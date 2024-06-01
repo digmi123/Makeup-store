@@ -8,10 +8,11 @@ import axios from "axios";
 
 export default function Checkout() {
   const { loading, cartItems } = useCart();
-  console.log(cartItems[0]);
 
   const handleOrder = async () => {
-    const createdOrder = await axios.post("/api/product/order");
+    const createdOrder = await axios.post("/api/product/order", {
+      cartItems,
+    });
     console.log({ createdOrder });
   };
 
