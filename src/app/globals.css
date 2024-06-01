@@ -72,6 +72,22 @@
     }
   }
 
+    .scrollbar::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+  
+    .scrollbar::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--foreground));
+      border: 2px solid transparent;
+      border-radius: 8px;
+      background-clip: padding-box;
+    }
+  
+    * {
+      @apply scrollbar;
+    }
+
   .selected{
     @apply border-2 border-pink-600;
   }
