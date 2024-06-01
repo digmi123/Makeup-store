@@ -55,16 +55,17 @@ model ProductColors {
 }
 
 model OrderItem {
-  orderItemId Int     @id @default(autoincrement())
+  orderItemId Int  @id @default(autoincrement())
   userId      Int
   productId   Int
   quantity    Int
   colorId     Int
-  orders      Order[]
+  orderId     Int?
 
   user    User    @relation(fields: [userId], references: [id])
   product Product @relation(fields: [productId], references: [id])
   color   Color   @relation(fields: [colorId], references: [id])
+  order   Order?  @relation(fields: [orderId], references: [id])
 
   @@unique([userId, productId])
 }
