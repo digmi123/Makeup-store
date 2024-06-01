@@ -5,10 +5,7 @@ import { Button } from "./ui/button";
 const options = [
   { key: "custom", text: "Custom website" },
   { key: "edit", text: "Edit profile website" },
-  { key: "custom", text: "Custom website" },
-  { key: "edit", text: "Edit profile website" },
-  { key: "custom", text: "Custom website" },
-  { key: "edit", text: "Edit profile website" },
+  { key: "orders", text: "My orders" },
 ];
 
 export default function SettingsOptions() {
