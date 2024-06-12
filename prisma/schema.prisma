@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:88788456a@localhost:5432/postgres?schema=public"
+  url      = env("DB_CONNECTION_STRING")
 }
 
 model User {
@@ -28,7 +28,7 @@ model Product {
   id            Int             @id @default(autoincrement())
   brand         String?
   name          String?
-  price         Decimal?
+  price         Float?
   description   String?
   category      String?
   image         String?
@@ -55,10 +55,11 @@ model ProductColors {
 }
 
 model OrderItem {
-  orderItemId Int  @id @default(autoincrement())
+  orderItemId Int    @id @default(autoincrement())
   userId      Int
   productId   Int
   quantity    Int
+  shipping    String
   colorId     Int
   orderId     Int?
 
